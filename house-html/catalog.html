@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu_bur.css">
+    <link rel="stylesheet" href="css/foot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="korzina.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/about_icon.svg" alt="Пример SVG" width="50" height="50">
+        <div class="burger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Корзина</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+            <li><a href="otzuv.html">Отзывы</a></li>
+        </ul>
+    </header>
+    <div class="cards-container">
+        <div class="card">
+            <a href="/catalog/ruchka.html"><img src="images/ruchka.jpg" ></a>
+            <h3>Ручка</h3>
+            <p>Инструмент для письма, доступный в различных видах: шариковая, гелевая, перьевая.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold; ">Цена: 1 руб.</span>
+                <button onclick="addToCart({id: 'item1', title: 'Ручка', description: 'Инструмент для письма, доступный в различных видах: шариковая, гелевая, перьевая.', img: 'images/ruchka.jpg', price: 'Цена: 1 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/karandash.html"><img src="images/karandash.jpg" ></a>
+            <h3>Карандаш</h3>
+            <p>Удобен для письма и рисования, может быть механическим или деревянным для письма и рисования.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 2 руб.</span>
+                <button onclick="addToCart({id: 'item2', title: 'Карандаш', description: 'Удобен для письма и рисования, может быть механическим или деревянным.', img: 'images/karandash.jpg', price: 'Цена: 2 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/lastik.html"><img src="images/lastik.jpg" ></a>
+            <h3>Ластик</h3>
+            <p>Стирает ошибки на бумаге, бывает разных форм и материалов бывает разных форм.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 4 руб.</span>
+                <button onclick="addToCart({id: 'item3', title: 'Ластик', description: 'Стирает ошибки на бумаге, бывает разных форм и материалов.', img: 'images/lastik.jpg' , price: 'Цена: 4 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/tochilka.html"><img src="images/tochilka.jpg" ></a>
+            <h3>Точилка</h3>
+            <p>Для заточки карандашей, поддерживает их в рабочем состоянии поддерживает их в.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 3 руб.</span>
+                <button onclick="addToCart({id: 'item4', title: 'Точилка', description: 'Для заточки карандашей, поддерживает их в рабочем состоянии.', img: 'images/tochilka.jpg', price: 'Цена: 3 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/lineka.html"><img src="images/lineka.jpg" ></a>
+            <h3>Линейка</h3>
+            <p>Используется для измерений и черчения. Используется для измерений и черчения.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 5 руб.</span>
+                <button onclick="addToCart({id: 'item5', title: 'Линейка', description: 'Используется для измерений и черчения.', img: 'images/lineka.jpg', price: 'Цена: 5 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/bloknot.html"><img src="images/bloknot.jpg" ></a>
+            <h3>Блокнот</h3>
+            <p>Компактный для заметок, записи идей или планирования.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 7 руб.</span>
+                <button onclick="addToCart({id: 'item6', title: 'Блокнот', description: 'Компактный для заметок, записи идей или планирования.', img: 'images/bloknot.jpg', price: 'Цена: 7 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/ras_ka.html"><img src="images/ras_ka.jpg" ></a>
+            <h3>Разноцветные карандаши</h3>
+            <p>Это инструмент для творчества. Они подходят для рисования</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 15 руб.</span>
+                <button onclick="addToCart({id: 'item7', title: 'Разноцветные карандаши', description: 'Удобен для письма и рисования, может быть механическим или деревянным.', img: 'images/karandash.jpg', price: 'Цена: 15 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/tetrad.html"><img src="images/tetrad.jpg" ></a>
+            <h3>Тетрадь</h3>
+            <p>Предназначена для учебы и работы, бывает разной разметки.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 10 руб.</span>
+                <button onclick="addToCart({id: 'item8', title: 'Тетрадь', description: 'Предназначена для учебы и работы, бывает разной разметки.', img: 'images/tetrad.jpg', price: 'Цена: 10 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/tetrad2.html"><img src="images/tetrad2.jpg" ></a>
+            <h3>Ежедневник</h3>
+            <p>Помогает организовать и планировать день.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 5 руб.</span>
+                <button onclick="addToCart({id: 'item9', title: 'Ежедневник', description: 'Помогает организовать и планировать день.', img: 'images/tetrad2.jpg', price: 'Цена: 5 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/skrepki.html"><img src="images/skrepki.jpg" ></a>
+            <h3>Скрепки</h3>
+            <p>Для соединения нескольких листов бумаги.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 0.50 руб.</span>
+                <button onclick="addToCart({id: 'item12', title: 'Скрепки', description: 'Для соединения нескольких листов бумаги.', img: 'images/skrepki.jpg', price: 'Цена: 0.50 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/stepler.html"><img src="images/stepler.jpg" ></a>
+            <h3>Степлер</h3>
+            <p>Закрепляет документы металлическими скобами.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 6 руб.</span>
+                <button onclick="addToCart({id: 'item13', title: 'Степлер', description: 'Закрепляет документы металлическими скобами.', img: 'images/stepler.jpg', price: 'Цена: 6 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/stikeru.html"><img src="images/stikeru.jpg" ></a>
+            <h3>Стикеры</h3>
+            <p>Клейкие заметки для быстрых записей или напоминаний.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 0.50 руб.</span>
+                <button onclick="addToCart({id: 'item12', title: 'Стикеры', description: 'Клейкие заметки для быстрых записей или напоминаний.', img: 'images/stikeru.jpg', price: 'Цена: 0.50 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/skobu.html"><img src="images/skobu.jpg" ></a>
+            <h3>Скобы для степлера</h3>
+            <p>Металлические элементы для степлера.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 5 руб.</span>
+                <button onclick="addToCart({id: 'item13', title: 'Скобы для степлера', description: 'Металлические элементы для степлера..', img: 'images/skobu.jpg', price: 'Цена: 5 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/kley.html"><img src="images/kley.jpg" ></a>
+            <h3>Клей</h3>
+            <p>Скрепляет бумагу, доступен в формате карандаша или жидкий.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 4 руб.</span>
+                <button onclick="addToCart({id: 'item14', title: 'Клей', description: 'Скрепляет бумагу, доступен в формате карандаша или жидкий.', img: 'images/kley.jpg', price: 'Цена: 4 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/noshnicu.html"><img src="images/noshnicu.jpg" ></a>
+            <h3>Ножницы</h3>
+            <p>Для нарезки бумаги, ткани и других материалов</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 7 руб.</span>
+                <button onclick="addToCart({id: 'item15', title: 'Ножницы', description: 'Для нарезки бумаги, ткани и других материалов', img: 'images/noshnicu.jpg', price: 'Цена: 7 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/marker.html"><img src="images/marker.jpg" ></a>
+            <h3>Маркеры</h3>
+            <p>Используются для выделения текста или рисования.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 12 руб.</span>
+                <button onclick="addToCart({id: 'item16', title: 'Маркеры', description: 'Используются для выделения текста или рисования.', img: 'images/marker.jpg', price: 'Цена: 12 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/zamaska.html"><img src="images/zamaska.jpg" ></a>
+            <h3>Корректор</h3>
+            <p>Маскирует ошибки на бумаге, может быть жидким или в виде ленты.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 5 руб.</span>
+                <button onclick="addToCart({id: 'item17', title: 'Корректор', description: 'Маскирует ошибки на бумаге, может быть жидким или в виде ленты.', img: 'images/zamaska.jpg', price: 'Цена: 5 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/papka.html"><img src="images/papka.jpg" ></a>
+            <h3>Папка для документов</h3>
+            <p>Хранит и организует бумаги. Хранит и организует бумаги.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 6 руб.</span>
+                <button onclick="addToCart({id: 'item18', title: 'Папка для документов', description: 'Хранит и организует бумаги.', img: 'images/papka.jpg', price: 'Цена: 6 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/files.html"><img src="images/fikes.jpg" ></a>
+            <h3>Файлы</h3>
+            <p>Прозрачные вкладыши для хранения бумаг.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 2 руб.</span>
+                <button onclick="addToCart({id: 'item19', title: 'Файлы', description: 'Прозрачные вкладыши для хранения бумаг.', img: 'images/karandash.jpg', price: 'Цена: 2 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/penal.html"><img src="images/penal.jpg" ></a>
+            <h3>Пенал</h3>
+            <p>Компактный контейнер для хранения ручек и карандашей.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 1 руб.</span>
+                <button onclick="addToCart({id: 'item20', title: 'Пенал', description: 'Компактный контейнер для хранения ручек и карандашей.', img: 'images/karandash.jpg', price: 'Цена: 1 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/igolki.html"><img src="images/igolki.jpg" ></a>
+            <h3>Кнопки</h3>
+            <p>Для закрепления бумаги на доске или стене.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 0.70 руб.</span>
+                <button onclick="addToCart({id: 'item21', title: 'Кнопки', description: 'Для закрепления бумаги на доске или стене.', img: 'images/igolki.jpg', price: 'Цена: 0.70 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/kalkulator.html"><img src="images/kalkulator.jpg" ></a>
+            <h3>Калькулятор</h3>
+            <p>Ускоряет расчёты, удобен для офиса и учёбы.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 23 руб.</span>
+                <button onclick="addToCart({id: 'item22', title: 'Калькулятор', description: 'Ускоряет расчёты, удобен для офиса и учёбы.', img: 'images/kalkulator.jpg', price: 'Цена: 23 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/kolcha.html"><img src="images/kolcha.jpg" ></a>
+            <h3>Кольца</h3>
+            <p>Соединяют документы в папки. Соединяют документы в папки</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 8 руб.</span>
+                <button onclick="addToCart({id: 'item23', title: 'Кольца', description: 'Соединяют документы в папки.', img: 'images/kolcha.jpg', price: 'Цена: 8 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/dura kol.html"><img src="images/dura kol.jpg" ></a>
+            <h3>Дыра-кол</h3>
+            <p>Пробивает отверстия в бумаге для переплёта.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 17 руб.</span>
+                <button onclick="addToCart({id: 'item24', title: 'Дыра-кол', description: 'Пробивает отверстия в бумаге для переплёта.', img: 'images/dura kol.jpg', price: 'Цена: 17 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/skotch.html"><img src="images/skotch.jpg" ></a>
+            <h3>Клейкая лента</h3>
+            <p>Для скрепления или упаковки, бывает прозрачной и цветной.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 2 руб.</span>
+                <button onclick="addToCart({id: 'item25', title: 'Клейкая лента', description: 'Для скрепления или упаковки, бывает прозрачной и цветной.', img: 'images/skotch.jpg', price: 'Цена: 2 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/chasu.html"><img src="images/chasu.jpg" ></a>
+            <h3>Часы</h3>
+            <p>Показывают время, удобны на рабочем столе.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 50 руб.</span>
+                <button onclick="addToCart({id: 'item26', title: 'Часы', description: 'Показывают время, удобны на рабочем столе.', img: 'images/chasu.jpg', price: 'Цена: 50 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/stikeru.html"><img src="images/stikeru.jpg" ></a>
+            <h3>Стикеры</h3>
+            <p>Маленькие листы для записи коротких сообщений.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 0.10 руб.</span>
+                <button onclick="addToCart({id: 'item27', title: 'Стикеры', description: 'Маленькие листы для записи коротких сообщений.', img: 'images/stikeru.jpg', price: 'Цена: 0.10 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <a href="/catalog/lamp.html"><img src="images/lamp.webp" ></a>
+            <h3>Лампа настольная </h3>
+            <p>Поможет работать в темное время суток, Отличное освещение </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 18px; font-weight: bold;">Цена: 78 руб.</span>
+                <button onclick="addToCart({id: 'item28', title: 'Лампа настольная', description: 'Поможет работать в темное время суток', img: 'images/lamp.webp', price: 'Цена: 78 руб.'})">
+                <i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="footer-column">
+                <h3>О магазине</h3>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Наша миссия</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Служба поддержки</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Возврат товара</a></li>
+                    <li><a href="#">Условия доставки</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Для партнёров</h3>
+                <ul>
+                    <li><a href="#">Корпоративным клиентам</a></li>
+                    <li><a href="#">Программа лояльности</a></li>
+                    <li><a href="#">Сотрудничество</a></li>
+                    <li><a href="#">Рекламные предложения</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Мы в соцсетях</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="custom-line">
+        <div class="footer">
+            <div class="footer-column">
+                © 2004-2025 Офистон</br>
+                Общество с ограниченной ответственностью "Смартон</br>
+                Юридический адрес: 220138, г. Минск, пер. Липковский,</br>
+                Регистрация в торговом реестре: №520172 от 04.10.2021</br>
+                Дата государственной регистрации: 04.07.2005</br>
+                Регистрационный номер в ЕГР: 190635842</br>
+            </div>
+            <div class="footer-column">
+                Дата государственной регистрации: 04.07.2005</br>
+                Регистрационный номер в ЕГР: 190635842</br>
+                Средняя оценка магазина на основе 341 отзыва</br>
+                4.9 ★★★★★</br>
+            </div>
+            <div class="footer-column">
+                Свяжитесь с нами</br>
+                +375 17 388-59-59</br>
+                +375 44 518-21-82</br>
+                +375 33 318-21-82</br>
+            </div>
+            <div class="footer-column">
+                <img src="/img/footer_icon.svg" width="160px" height="160px">
+            </div>
+        </div>
+    </footer>    
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/menu_bur.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: white;
+            background-image: url("../img/photo-1575210489639-61c86a0154d4.jpeg"); /* Укажите путь к изображению */
+            background-size: cover; /* Растягивает изображение на весь header */ 
+            background-position: center; /* Центрирует фон */ 
+            background-attachment: fixed; 
+            height: 460px; /* Увеличенная высота */ 
+            position: relative;
+        }
+        .title {
+            font-weight: bold;
+            margin: 30px 0;
+            font-size: 24px;
+        }
+
+        .reviews-container {
+            display: flex;
+            flex-wrap: wrap; /* Отображение карточек на одной линии с переносом */
+            justify-content: center; /* Центрирование карточек */
+            gap: 20px; /* Расстояние между карточками */
+            margin: 20px;
+        }
+
+        .review-card {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 300px; /* Фиксированная ширина карточки */
+            text-align: left;
+        }
+
+        .review-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #ffdd57;
+        }
+
+        .review-card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .form-container {
+            width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1000px;
+            background-color: #444;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        form label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #666;
+            color: white;
+        }
+
+        form input[type="submit"] {
+            background-color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: grey;
+        }
+        .review-card:hover{
+            box-shadow: 12px 12px 16px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="burger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">Корзина</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="title">Отзывы наших клиентов</div>
+        <div class="reviews-container" id="reviewsContainer"></div>
+
+                <!-- Форма для добавления отзыва -->
+                <div class="form-container">
+                    <form id="studentForm">
+                        <label for="name">Имя</label>
+                        <input id="name" type="text" placeholder="Введите ваше имя" required>
+        
+                        <label for="text">Ваш отзыв</label>
+                        <input id="text" rows="4" placeholder="Напишите ваш отзыв..." required></input>
+        
+                        <input type="submit" value="Оставить отзыв">
+                    </form>
+                </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    fetch('reviews.xml')
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(xml => {
+            let container = document.getElementById("reviewsContainer");
+            let reviews = xml.getElementsByTagName("review");
+
+            for (let review of reviews) {
+                let name = review.getElementsByTagName("name")[0].textContent;
+                let text = review.getElementsByTagName("text")[0].textContent;
+                let rating = review.getElementsByTagName("rating")[0].textContent;
+
+                let reviewCard = document.createElement("div");
+                reviewCard.classList.add("review-card");
+                reviewCard.innerHTML = `
+                    <h3>${name}</h3>
+                    <p>${text}</p>
+                    <div class="stars">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
+                `;
+                container.appendChild(reviewCard);
+            }
+        })
+        .catch(error => console.log("Ошибка загрузки XML:", error));
+});
+
+
+      document.getElementById("studentForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Останавливаем стандартное поведение формы
+
+            // Очищаем форму после отправки
+            document.getElementById("studentForm").reset();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

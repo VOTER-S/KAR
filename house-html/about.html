@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/menu_bur.css">
+    <script src="script.js" defer></script>
+    <script src="korzina.js" defer></script>
+    <title>Корзина</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/about_icon.svg" alt="Пример SVG" width="50" height="50">
+        <div class="total-container">
+        </div>
+        <div class="burger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="menu">
+            <button class="clear-cart" onclick="clearCart()">Очистить корзину</button>
+            <button onclick="openDialog()">Оплатить корзину</button>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="/contact.html">Контакты</a></li>
+            <li><a href="otzuv.html">Отзывы</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="dialog-overlay" id="dialogOverlay">
+            <div class="dialog">
+                <h3 id="total-price">Общая сумма: 0 руб.</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="card-number">Номер карты</label>
+                        <input id="card-number" type="text" placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-expiry">Срок действия</label>
+                        <input id="card-expiry" type="text" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvc">CVC</label>
+                        <input id="card-cvc" type="text" placeholder="123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-holder">Имя владельца</label>
+                        <input id="card-holder" type="text" placeholder="Иван Иванов" required>
+                    </div>
+                    <button type="submit" class="btn-submit" onclick="closeDialog()">Оплатить</button>
+                </form>
+            </div>
+        </div>
+        <div class="cards-container">
+            <!-- Готовые карточки -->
+            <div class="card" id="item1">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item2">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item3">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item4">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style=" color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item5">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item6">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item7">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item8">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item9">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item10">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item11">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item12">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item13">
+                <img src="" >
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item14">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item15">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item16">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item17">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item18">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item19">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item20">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item21">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item22">
+                <img src="" >
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item23">
+                <img src="" >
+                <h3></h3>
+                <p></p>
+                <span style=" color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item24">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item25">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item26">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item27">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white; font-size: 18px; font-weight: bold;"></span>
+            </div>
+            <div class="card" id="item28">
+                <img src="">
+                <h3></h3>
+                <p></p>
+                <span style="color: white;  font-size: 18px; font-weight: bold;"></span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

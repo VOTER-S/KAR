@@ -1,0 +1,342 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Light.ttf") format("truetype");
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+footer, main {
+  background-color: #333;
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between; /* Пространство между элементами */
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  height: 460px; /* Увеличенная высота */
+}
+
+header img {
+  position: absolute; /* Закрепляем позицию */
+  top: 10px; /* Сдвигаем вниз от верхней границы */
+  left: 20px; /* Расположено слева */
+  width: 50px;
+  height: 50px;
+}
+
+.fix-photo {
+  background-image: url("../img/photo-1575210489639-61c86a0154d4.jpeg"); /* Укажите путь к изображению */
+  background-size: cover; /* Растягивает изображение на весь header */
+  background-position: center; /* Центрирует фон */
+  background-attachment: fixed;
+  height: 460px; /* Увеличенная высота */
+  position: relative;
+}
+
+.photo-container {
+  display: flex; /* Общая настройка для flex */
+  flex-wrap: wrap; /* Позволяем фотографии переноситься */
+  gap: 70px; /* Расстояние между фотографиями */
+  justify-content: center; /* Центрируем содержимое */
+  padding: 20px; /* Отступ контейнера */
+}
+
+.photo-text {
+  display: flex;
+  flex-direction: column; /* Ставим текст под фото */
+  align-items: center; /* Центрируем содержимое */
+  text-align: center;
+}
+
+/* Стили для фотографий */
+.photo-container img {
+  width: 200px; /* Фиксированная ширина фотографий */
+  height: 200px; /* Фиксированная высота фотографий */
+  -o-object-fit: cover;
+     object-fit: cover; /* Обеспечиваем сохранение пропорций */
+  border-radius: 50%; /* Скругляем углы фотографий */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .photo-container {
+    display: grid; /* Используем CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap: 20px; /* Уменьшенное расстояние между колонками */
+  }
+  .photo-text {
+    text-align: center;
+  }
+  .photo-container img {
+    width: 150px; /* Уменьшаем фото для мобильных устройств */
+    height: 150px;
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 0;
+}
+.container img {
+  margin-top: 5%;
+  width: 50%;
+}
+.container .text {
+  flex: 1;
+  margin-top: 10%;
+}
+.container .text p {
+  font-size: 50px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .container img {
+    width: 100%;
+  }
+  .container .text {
+    text-align: center;
+  }
+}
+blockquote {
+  font-size: 15px;
+  font-style: italic;
+  color: white;
+  border-left: 4px solid black;
+  padding-left: 15px;
+  margin: 20px;
+}
+
+.counter-container {
+  display: flex;
+  margin-top: 7%;
+  margin-left: 10%;
+  justify-content: center;
+  gap: 80px;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.counter {
+  background: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+.counter:hover {
+  transform: scale(1.05);
+}
+.counter .number {
+  font-size: 3rem;
+  color: white;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .counter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .counter {
+    width: 90%;
+  }
+}
+.title {
+  margin-top: 90px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+  border: 2px solid #333;
+  margin-bottom: 80px;
+}
+
+.grid-item {
+  background-color: #333;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.fixed-photo {
+  margin-top: 30px;
+  background-image: url("../img/photo-1556808752-77f2fe75360b.jpeg"); /* Укажите путь к изображению */
+  background-size: cover; /* Растягивает изображение на весь header */
+  background-position: center; /* Центрирует фон */
+  background-attachment: fixed;
+  height: 460px; /* Увеличенная высота */
+  position: relative;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap; /* Отображение карточек на одной линии с переносом */
+  justify-content: center; /* Центрирование карточек */
+  gap: 20px; /* Расстояние между карточками */
+  margin: 20px;
+  margin-top: 30px;
+}
+
+.review-card {
+  background-color: #444;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Фиксированная ширина карточки */
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.review-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #ffdd57;
+}
+
+.review-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  .reviews-container {
+    display: grid; /* Используем Grid для мобильных устройств */
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap: 15px; /* Расстояние между колонками и строками */
+    padding: 10px; /* Уменьшенные отступы */
+  }
+  .review-card {
+    width: auto; /* Автоматическая ширина для сетки */
+    text-align: center; /* Текст по центру */
+  }
+  .review-card h3 {
+    font-size: 16px; /* Уменьшенный размер заголовков */
+  }
+  .review-card p {
+    font-size: 14px; /* Уменьшенный размер текста */
+    line-height: 1.4;
+  }
+}
+.charity-section {
+  background-color: #555;
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  margin-bottom: 0px;
+}
+
+.charity-container h2 {
+  font-size: 26px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.charity-container p {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.charity-info {
+  display: flex;
+  flex-wrap: wrap; /* Адаптивная обёртка для элементов */
+  gap: 20px; /* Расстояние между карточками */
+  justify-content: center;
+}
+
+.charity-item {
+  background-color: #555;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: left;
+  flex: 1; /* Увеличиваем гибкость для адаптации на мобильных */
+  min-width: 240px; /* Минимальная ширина карточки */
+}
+
+.charity-item h3 {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.charity-item p {
+  font-size: 14px;
+  color: white;
+}
+
+.charity-button {
+  margin-top: 17px;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.charity-item:hover {
+  box-shadow: 0 0 58px rgba(0, 0, 0, 0.832);
+}
+
+.charity-button:hover {
+  background-color: grey;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  .charity-info {
+    flex-direction: column; /* Расположение карточек в столбик */
+  }
+  .charity-item {
+    max-width: 100%; /* Занимают всю ширину на мобильных */
+  }
+  .charity-container h2 {
+    font-size: 22px; /* Уменьшаем размер заголовка */
+  }
+  .charity-container p {
+    font-size: 14px; /* Уменьшаем текст на мобильных */
+  }
+}/*# sourceMappingURL=main.css.map */

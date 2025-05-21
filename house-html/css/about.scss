@@ -1,0 +1,181 @@
+$text-color: white;
+$mobile-breakpoint: 768px;
+$hover-color: grey;
+$bg-color: #333;
+$card-bg:  #333;
+$card-border: #ddd;;
+$shadow: rgba(0, 0, 0, 0.1);
+$hover-shadow: rgba(0, 0, 0, 0.3);
+
+
+header img {
+    position: absolute; /* Закрепляем позицию */
+    top: 10px; /* Сдвигаем вниз от верхней границы */
+    left: 20px; /* Расположено слева */
+    width: 50px;
+    height: 50px;
+  }
+
+
+
+ 
+
+
+
+// Контейнер для карточек
+.cards-container {
+    margin-top: 10%;
+    display: flex; /* Выстраиваем карточки горизонтально */
+    gap: 20px; /* Расстояние между карточками */
+    justify-content: center; /* Центрируем карточки */
+    flex-wrap: wrap; /* Позволяем переносить строки для мобильных устройств */
+    padding: 20px;
+}
+
+// Стили для карточек
+.card {
+    background-color: $card-bg;
+    transition: box-shadow 0.3s ease; /* Эффект наведения */
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: 0 8px 16px $hover-shadow; /* Тень при наведении */
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border: none; /* Сохраняем пропорции изображений */
+    }
+    img[src=""] {
+      display: none;
+    }
+    h3 {
+        margin: 15px 0 10px;
+        font-size: 1.5rem;
+        color: $text-color;
+    }
+
+    p {
+        margin: 0 10px 15px;
+        font-size: 1rem;
+        color: $text-color;
+        line-height: 1.5;
+    }
+}
+
+// Адаптивность
+@media (max-width: $mobile-breakpoint) {
+    .cards-container {
+        flex-direction: column; /* Карточки выстраиваются в колонку */
+        align-items: center; /* Центрируем карточки */
+    }
+
+    .card {
+        width: 90%; /* Увеличиваем ширину карточек на мобильных устройствах */
+    }
+}
+button{
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  background-color: $bg-color;
+  border: none;
+  color: $text-color;
+  
+  
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  
+}
+.total-container {
+  position: absolute;
+  top: 20px; /* Расположение сверху */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translateX(-50%); /* Точное центрирование */
+  font-size: 18px;
+  color: white;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный тёмный фон */
+  display: none; /* Окно скрыто по умолчанию */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Стиль самого окна */
+.dialog {
+  background-color: #fff; /* Белый фон для формы */
+  border-radius: 10px;
+  padding: 25px;
+  width: 420px; /* Увеличенная ширина формы */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+.dialog h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%; /* Ширина на всю форму */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fdfdfd;
+}
+
+.form-group input::placeholder {
+  color: #bbb;
+}
+
+/* Кнопка оплаты */
+.btn-submit {
+  background-color:  rgb(42, 41, 41);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color:  rgb(187, 202, 24);
+}
+
+/* Центрирование текста */
+.dialog-overlay {
+  display: none;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="css/menu_bur.css">
+    <script src="script.js" defer></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: white;
+            background-image: url("../img/photo-1575210489639-61c86a0154d4.jpeg"); /* Укажите путь к изображению */
+            background-size: cover; /* Растягивает изображение на весь header */ 
+            background-position: center; /* Центрирует фон */ 
+            background-attachment: fixed; 
+            height: 460px; /* Увеличенная высота */ 
+            position: relative;
+        }
+    </style>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div class="burger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">Корзина</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="otzuv.html">Отзывы</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="title">
+            <div>Контакты</div>
+            <div>Прием заказов и консультация по телефонам:</div>
+            <div>
+                Консультанты и операторы работают ежедневно (без выходных) с 9:00 до 18:00. </br>
+            </div>
+        </div>
+        <div class="container">
+            <div class="number"> 
+                (029) 540-29-29</br>
+                (029) 610-41-41</br>
+                (029) 730-56-56</br>
+                8(0163) 68-00-00</br>
+                (029) 540-29-29</br>
+            </div>
+            <div>
+                электронная почта: info@delovoy.body</br>
+                Skype: delovoy.by</br>
+                электронная почта отдела печатей и штампов: stamp@delovoy.by</br>
+                Телефон маркентинга, бухгалтерия, приемная: 8(0163) 68-00-00</br>
+                Оптовые отдел: 8(0163) 68-00-00</br>
+            </div> 
+            <div>
+                Вы можете разместить заказ в интернет-магазине круглосуточно без выходных.</br>
+                Счет на оплату будет выписан в автоматическом режиме. Благодаря тому, что</br>
+                интернет-магазин позволяет сделать заказ в пределах реальных складских остатков по актуальным ценам, </br>
+                отправленный вам счет является окончательной офертой. Вы можете оплачивать его без каких-либо</br>
+                дополнительных уточнений и согласований по наличию товара и ценам.</br>
+            </div>
+        </div>
+        <form id="studentForm">  
+            <h1 class="header">Нужна помощь? Свяжитесь с нами</h1>
+            <p>
+                <label for="text">Контактное лицо </label>
+                <input id="text" type="text" required/>
+            </p>   
+            <p>  
+                <label for="email">Адрес почты</label>  
+                <input id="email" type="email"  required/>  
+            </p>   
+            <p>
+                <label for="text">Расскажите о проблеме</label>
+                <input id="text" type="text"  required/>
+            </p>
+            <input type="submit" value="Отправить" id="submit"/>  
+        </form>
+        <div class="info-columns">
+            <div class="column">
+                <h3>Наши реквизиты</h3>
+                <p>
+                    Частное предприятие «Дело компани»<br>
+                    Юридический и почтовый адрес: 225416 г. Барановичи, ул. Жукова, 2/2.<br>
+                    УНП 290611520, ОКПО 294766921000<br>
+                    Расчетный счет BY06BLBB30120290611520001001 в ЦБУ № 405 ОАО «Белинвестбанк», г. Барановичи, ул. Димитрова, 15, БИК BLBBBY2X.<br>
+                </p>
+            </div>
+            <div class="column">
+                <h3>Место нахождения</h3>
+                <p>
+                    Телефон: (0163) 66-87-01<br>
+                    Электронный адрес: info@delovoy.by<br>
+                    Интернет-магазин зарегистрирован в торговом реестре 11.01.2012 г.<br>
+                    Свидетельство о гос. регистрации № 290611520 от 17.09.2010 г. (ГИК Барановичи).<br>
+                </p>
+            </div>
+        </div>
+        
+        <div id="map" class="map-container"></div>
+        <script>
+            // Инициализация карты
+            ymaps.ready(init);
+            function init() {
+                // Создаем карту
+                const map = new ymaps.Map("map", {
+                    center: [53.1327, 26.0182], 
+                    zoom: 14 
+                });
+    
+                // Добавляем метку на карту
+                const placemark = new ymaps.Placemark([53.1327, 26.0182], {
+                    balloonContent: 'Магазин канцелярских товаров'
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#0095b6'
+                });
+    
+                map.geoObjects.add(placemark); // Добавляем метку на карту
+            }
+        </script>
+    </main>
+</body>
+</html>
